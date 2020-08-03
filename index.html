@@ -1,0 +1,76 @@
+
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+<!-- cdn links for icon -->
+</head>
+<body>
+<img src="http://192.168.43.199:8081" />
+<!--Enter the IP Address of your Raspberry Pi-->
+
+
+<div style=" height:400px; width:400px; float: right; margin-right:40px;">
+
+    <center>
+        <h1 style="color:#5C5C5C;">PI<span style="color:#139442;"> Robot</span></h1>
+        <h2>Chan Htwe Latt</h2><br><br>
+    <!-- heading sectiong -->
+    </center>
+
+    <center>
+    <a href="#" id="up" style="font-size:30px;text-decoration:none;"> 
+        <i class="fa fa-arrow-circle-up" aria-hidden="true"></i><br>Forward
+    </a>
+    <br><br>
+    </center>
+    <!-- forward button -->
+
+    <a href="#" id="left" style="font-size:30px;text-decoration:none; float: left;">
+        <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>Left
+    </a>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <!-- left button -->
+
+
+    <a href="#" id="right" style="font-size:30px; text-decoration:none; float: right;">
+        Right <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+    </a>
+    <br><br>
+    <!-- right button -->
+
+    <center>
+        <a href="#" id="down" style="font-size:30px;text-decoration:none;"> Backward<br><i class="fa fa-arrow-circle-down" aria-hidden="true"></i></a>
+    </center>
+    <!-- backward button -->
+</div>
+
+<!-- end of html section -->
+
+<script>
+$( document ).ready(function(){
+    $("#down").on("mousedown", function() {
+     $.get('/down_side');
+     }).on('mouseup', function() {
+     $.get('/stop');
+    });
+    $("#up").on("mousedown", function() {
+     $.get('/up_side');
+     }).on('mouseup', function() {
+     $.get('/stop');
+    });
+    $("#left").on("mousedown", function() {
+     $.get('/left_side');
+     }).on('mouseup', function() {
+     $.get('/stop');
+    });
+    $("#right").on("mousedown", function() {
+     $.get('/right_side');
+     }).on('mouseup', function() {
+     $.get('/stop');
+    });
+});
+</script>
+</body>
+</html>
